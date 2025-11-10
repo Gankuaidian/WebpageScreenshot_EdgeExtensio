@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>标注截图</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; }
+    header { padding: 8px; background: #f5f5f5; border-bottom: 1px solid #ddd; display: flex; gap: 8px; align-items: center; }
+    .btn { padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; cursor: pointer; }
+    #canvasWrap { position: relative; overflow: auto; height: calc(100vh - 48px); background: #0001; }
+    canvas { display: block; margin: 0 auto; background: #fff; }
+    input[type=color] { width: 36px; height: 28px; border: none; }
+    label { font-size: 12px; }
+  </style>
+  <script defer src="annotate.js"></script>
+</head>
+<body>
+  <header>
+    <button id="save" class="btn">保存 PNG</button>
+    <button id="resetZoom" class="btn">重置缩放</button>
+    <label>颜色：<input id="color" type="color" value="#ff0000"></label>
+    <label style="margin-left:12px; display:flex; align-items:center; gap:4px;">
+      <input id="liveBind" type="checkbox" checked>
+      实时绑定当前标签页
+    </label>
+    <span id="bindStatus" style="font-size:12px; color:#666; margin-left:8px;"></span>
+  </header>
+  <div id="canvasWrap">
+    <canvas id="canvas"></canvas>
+  </div>
+</body>
+</html>
